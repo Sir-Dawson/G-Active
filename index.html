@@ -38,15 +38,16 @@
       flex-direction: column;
       overflow: hidden;
       background: #252824;
+      margin-top: 0;
     }
     .hero-video {
       position: absolute;
       z-index: -2;
-      inset: 0;
+      inset: 110px 0 0 0;
       width: 100%;
-      height: 100%;
+      height: calc(100% - 110px);
       object-fit: cover;
-      object-position: center 38%;
+      object-position: center 55%;
     }
     .hero::after {
       position: absolute;
@@ -60,10 +61,34 @@
       width: min(1180px, calc(100% - 48px));
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
       margin: 0 auto;
       padding: 28px 0;
       border-bottom: 1px solid var(--line);
     }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 2vw, 28px);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 2vw, 28px);
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: rgba(242, 241, 233, 0.75);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--red); }
     .brand {
       display: inline-flex;
       align-items: center;
@@ -95,7 +120,7 @@
       flex: 1;
       align-content: center;
       margin: 0 auto;
-      padding: 76px 0 112px;
+      padding: 110px 0 112px;
       animation: arrive .7s ease-out both;
     }
     .eyebrow {
@@ -200,10 +225,12 @@
     @keyframes arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 680px) {
       .hero { min-height: min(760px, 91svh); }
-      .hero-video { object-position: 58% center; }
+      .hero-video { inset: 90px 0 0 0; height: calc(100% - 90px); object-position: 58% 68%; }
       .hero::after { background: linear-gradient(90deg, rgba(14, 16, 14, .83), rgba(14, 16, 14, .25)), linear-gradient(0deg, rgba(14, 16, 14, .68), transparent 70%); }
       .topbar, .hero-content, .intro, .services, footer { width: calc(100% - 36px); }
       .topbar { padding: 20px 0; }
+      .nav-wrap { width: 100%; justify-content: space-between; }
+      .nav-links { width: 100%; justify-content: space-between; }
       .socials { gap: 12px; }
       .socials a { font-size: 11px; }
       .hero-content { padding: 70px 0 95px; }
@@ -234,11 +261,19 @@
           <span class="brand-mark" aria-hidden="true">G</span>
           <span class="brand-name">G ACTIVE<span>FITNESS</span></span>
         </a>
-        <nav class="socials" aria-label="Social media">
-          <!-- Replace these sample profile URLs with your social media pages. -->
-          <a href="https://www.instagram.com/g_active_fitness?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=61584638510250" target="_blank" rel="noopener noreferrer">Facebook</a>
-        </nav>
+        <div class="nav-wrap">
+          <nav class="nav-links" aria-label="Main navigation">
+            <a href="#top">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="admin.html">Admin</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <nav class="socials" aria-label="Social media">
+            <!-- Replace these sample profile URLs with your social media pages. -->
+            <a href="https://www.instagram.com/g_active_fitness?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61584638510250" target="_blank" rel="noopener noreferrer">Facebook</a>
+          </nav>
+        </div>
       </header>
 
       <div class="hero-content">
@@ -258,7 +293,7 @@
       </div>
     </section>
 
-    <section class="services" aria-label="Training focus">
+    <section class="services" id="services" aria-label="Training focus">
       <article class="service">
         <span class="service-number">01 / BUILD</span>
         <h3>Strength training</h3>
@@ -291,4 +326,3 @@
   </footer>
 </body>
 </html>
-
