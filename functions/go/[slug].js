@@ -1,5 +1,6 @@
 const LINKS = {
-  instagram: "https://instagram.com/g_active_fitness",
+  instagram: "https://www.instagram.com/g_active_fitness?utm_source=ig_web_button_share_sheet&;stkn=ZDNlZDc0MzIxNw==",
+  facebook: "https://www.facebook.com/profile.php?id=61584638510250",
 };
 
 export async function onRequest(context) {
